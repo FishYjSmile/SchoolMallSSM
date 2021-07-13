@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="yj.Mapper.ImgMayjorMapper">
+	<select id="findrecomendById1" parameterType="Integer" resultType="yj.Po.ImgMayjor">
+	 	select * from img_mayjor where GOODS_ID = #{GOODS_ID} 
+	</select>
+	<select id="findrecomendById2" parameterType="Integer" resultType="yj.Po.Whole">
+	 	select * from whole where GOODS_ID = #{GOODS_ID} 
+	</select>
+	
+</mapper>

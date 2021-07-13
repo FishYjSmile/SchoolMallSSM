@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="yj.Mapper.LogisticsMapper">
+	 <select id="findrecomendById1" parameterType="Integer" resultType="yj.Po.Logistics">
+	 	select * from logistics where USERNAME = #{USERNAME} 
+	 </select>
+	 <insert id="addrecomend1" parameterType="yj.Po.Logistics">
+	 	insert into logistics(ADDRESS,PHONE,ZIP_CODE,NAME,USERNAME,ID) values(#{ADDRESS},#{PHONE},#{ZIP_CODE},#{NAME},#{USERNAME},#{ID})
+	 </insert>
+	 <update id="updaterecomend1" parameterType="yj.Po.Logistics">
+	 	update logistics set 
+ 		ADDRESS = #{ADDRESS},
+	 	NAME = #{NAME},
+	 	ZIP_CODE = #{ZIP_CODE},
+	 	PHONE = #{PHONE}
+	 	where USERNAME=#{USERNAME} and ID=#{ID}
+	 </update>
+	 <delete id="deleterecomend1" parameterType="yj.Po.Logistics">
+	 	delete from logistics where USERNAME=#{USERNAME} and ID=#{ID}
+	 </delete>
+</mapper>

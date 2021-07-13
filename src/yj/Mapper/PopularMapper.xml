@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="yj.Mapper.PopularMapper">
+	 <select id="findrecomendById1" parameterType="Integer" resultType="yj.Po.Popular">
+	 	select * from popular
+	 </select>
+	 <insert id="addrecomend1" parameterType="yj.Po.Popular">
+	 	insert into popular(GOODS_ID,IMG_URL,name) values(#{GOODS_ID},#{IMG_URL},#{name})
+	 </insert>
+	 <update id="updaterecomend1" parameterType="yj.Po.Popular">
+	 	update popular set 
+ 		GOODS_ID = #{GOODS_ID},
+	 	IMG_URL = #{IMG_URL},
+	 	where GOODS_ID=#{GOODS_ID}
+	 </update>
+	 <delete id="deleterecomend1" parameterType="yj.Po.Popular">
+	 	delete from popular where GOODS_ID=#{GOODS_ID}
+	 </delete>
+</mapper>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="yj.Mapper.CartsMapper">
+	 <select id="findrecomendById1" parameterType="Integer" resultType="yj.Po.Carts">
+	 	select * from carts where USERNAME = #{USERNAME} 
+	 </select>
+	 <insert id="addrecomend1" parameterType="yj.Po.Carts">
+	 	insert into carts(GOODS_ID,IMG_URL,USERNAME,PRICE,TITLE,REPLACE_NUM) values(#{GOODS_ID},#{IMG_URL},#{USERNAME},#{PRICE},#{TITLE},#{REPLACE_NUM})
+	 </insert>
+	 <update id="updaterecomend1" parameterType="yj.Po.Carts">
+	 	update carts set 
+ 		REPLACE_NUM = #{REPLACE_NUM}
+	 	where GOODS_ID=#{GOODS_ID} and USERNAME=#{USERNAME}
+	 </update>
+	 <delete id="deleterecomend1" parameterType="yj.Po.Carts">
+	 	delete from carts where GOODS_ID=#{GOODS_ID} and USERNAME=#{USERNAME}
+	 </delete>
+	 <delete id="deleterecomend2" parameterType="yj.Po.Carts">
+	 	delete from carts where USERNAME=#{USERNAME}
+	 </delete>
+</mapper>

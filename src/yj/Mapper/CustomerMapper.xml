@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="yj.Mapper.CustomerMapper">
+	 <select id="findCustomerById1" parameterType="Integer" resultType="yj.Po.User">
+	 	select * from customer where username = #{username} 
+	 </select>
+	 <select id="findCustomerByName1" parameterType="String" resultType="yj.Po.User">
+	 	<!-- select * from t_customer where username like concat('%','#{value},'%')  -->
+	 	<!-- 模糊查询 -->
+	 	select * from customer where username like '%${value}%'
+	 </select>
+	 <insert id="addCustomer1" parameterType="yj.Po.User">
+	 	insert into customer(username,password,name) values(#{username},#{password},#{name})
+	 </insert>
+	 <update id="updateCustomer1" parameterType="yj.Po.User">
+	 	update customer set 
+ 		username = #{username},
+	 	password = #{password},
+	 	where username=#{username}
+	 </update>
+	 <delete id="deleteCustomer1" parameterType="yj.Po.User">
+	 	delete from customer where username=#{username}
+	 </delete>
+	 <select id="findCustomerByNameAndJobs" parameterType="yj.Po.User" resultType="yj.Po.User">
+	 	select * from t_customer where 1 = 1
+	 	<if test="username != null and jobs !=''">
+	 		and username like concat('%',#{username},'%')
+	 	
+	 	</if>
+	 	<if test="jobs != null and jobs !=''">
+	 		and jobs = #{jobs}
+	 	</if>
+	 </select>
+</mapper>

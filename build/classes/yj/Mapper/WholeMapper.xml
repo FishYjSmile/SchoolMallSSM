@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="yj.Mapper.WholeMapper">
+	 <select id="findrecomendById1" parameterType="Integer" resultType="yj.Po.Whole">
+	 	select * from whole where GOODS_ID = #{GOODS_ID} 
+	 </select>
+	 <select id="findrecomendById2" parameterType="Integer" resultType="yj.Po.Whole">
+	 	select * from whole where TITLE like concat('%','${TITLE}','%')
+	 </select>
+	 <insert id="addrecomend1" parameterType="yj.Po.Whole">
+	 	insert into whole (GOODS_ID,IMG_URL,TITLE,V_TITLE,PRICE) values(#{GOODS_ID},#{IMG_URL},#{TITLE},#{V_TITLE},#{PRICE})
+	 </insert>
+	 <update id="updaterecomend1" parameterType="yj.Po.Whole">
+	 	update whole set 
+ 		GOODS_ID = #{GOODS_ID},
+	 	IMG_URL = #{IMG_URL},
+	 	TITLE = #{TITLE},
+	 	V_TITLE = #{V_TITLE},
+	 	PRICE = #{PRICE}
+	 	where GOODS_ID=#{GOODS_ID}
+	 </update>
+	 <delete id="deleterecomend1" parameterType="yj.Po.Whole">
+	 	delete from whole where GOODS_ID=#{GOODS_ID}
+	 </delete>
+</mapper>
